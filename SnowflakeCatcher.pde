@@ -1,5 +1,5 @@
 
-SnowFlake[] flakeHolder =  new SnowFlake[10000];
+SnowFlake[] flakeHolder =  new SnowFlake[1000];
 int flakeCount = 0;
 int[][] walls = new int[500][500];
 void setup(){
@@ -21,10 +21,15 @@ void draw(){
 		if(flakeHolder[i] != null){
             fill(255,255,255);
 			ellipse(flakeHolder[i].x, flakeHolder[i].y, flakeHolder[i].flakeSize, flakeHolder[i].flakeSize);
-			
+		}
+	}
+
+	for(int i = 0; i<flakeHolder.length; i++){
+		if(flakeHolder[i] != null){
 			flakeHolder[i].move();
 		}
 	}
+
 
 }
 void keyPressed(){
