@@ -1,4 +1,6 @@
-SampleAssignment
+Snowflakes
 ================
 
-A Sample Assignment that will go through the workflow of gi
+Right click to draw wooden wall, left to erase.  Spacebar removes all snow.
+
+Currently working on removing lag.
