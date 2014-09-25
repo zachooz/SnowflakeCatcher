@@ -68,7 +68,7 @@ void draw(){
 		}
 	}
 	
-	println(frameRate);
+	//println(frameRate);
 
 
 }
