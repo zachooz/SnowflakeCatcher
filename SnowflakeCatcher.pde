@@ -1,4 +1,3 @@
-
 SnowFlake[] flakeHolder =  new SnowFlake[1000];
 int flakeCount = 0;
 void setup(){
@@ -6,7 +5,36 @@ void setup(){
 	noStroke();
 	fill(0);
 	rect(-100, -100, 1000, 1000);
-	frameRate(24);
+	frameRate(100);
+}
+
+void mouseDragged() {
+	if(mouseX<500 && mouseX>0 && mouseY>0 && mouseY<500){
+	  noStroke();
+	  if (mouseButton == LEFT) {
+		fill(#a0522d);
+		ellipse(mouseX,mouseY,20,20);
+	  } else if (mouseButton == RIGHT) {
+		fill(0);
+		ellipse(mouseX,mouseY,40,40);
+		noStroke();
+	  }
+	}
+}
+
+void mousePressed() {
+	if(mouseX<500 && mouseX>0 && mouseY>0 && mouseY<500){
+	  noStroke();
+	  if (mouseButton == LEFT) {
+		fill(#a0522d);
+		ellipse(mouseX,mouseY,20,20);
+	  } else if (mouseButton == RIGHT) {
+		fill(0);
+		ellipse(mouseX,mouseY,40,40);
+		
+	  }
+	}
+
 }
 
 void draw(){
@@ -39,6 +67,8 @@ void draw(){
 			flakeHolder[i].move();
 		}
 	}
+	
+	println(frameRate);
 
 
 }
@@ -91,33 +121,4 @@ class SnowFlake{
 	}
 }
 
-void mouseDragged() {
-	if(mouseX<500 && mouseX>0 && mouseY>0 && mouseY<500){
-	  noStroke();
-	  if (mouseButton == LEFT) {
-		//fill((int) (Math.random()*255),(int) (Math.random()*255),(int) (Math.random()*255));
-		fill(#a0522d);
-		ellipse(mouseX,mouseY,20,20);
-	  } else if (mouseButton == RIGHT) {
-		fill(0);
-		ellipse(mouseX,mouseY,40,40);
-		noStroke();
-	  }
-	}
-}
 
-void mousePressed() {
-
-	if(mouseX<500 && mouseX>0 && mouseY>0 && mouseY<500){
-	  noStroke();
-	  if (mouseButton == LEFT) {
-		fill(#a0522d);
-		ellipse(mouseX,mouseY,20,20);
-	  } else if (mouseButton == RIGHT) {
-		fill(0);
-		ellipse(mouseX,mouseY,40,40);
-		
-	  }
-	}
-
-}

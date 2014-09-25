@@ -14,7 +14,6 @@ import java.io.IOException;
 
 public class SnowflakeCatcher extends PApplet {
 
-
 SnowFlake[] flakeHolder =  new SnowFlake[1000];
 int flakeCount = 0;
 public void setup(){
@@ -23,6 +22,35 @@ public void setup(){
 	fill(0);
 	rect(-100, -100, 1000, 1000);
 	frameRate(100);
+}
+
+public void mouseDragged() {
+	if(mouseX<500 && mouseX>0 && mouseY>0 && mouseY<500){
+	  noStroke();
+	  if (mouseButton == LEFT) {
+		fill(0xffa0522d);
+		ellipse(mouseX,mouseY,20,20);
+	  } else if (mouseButton == RIGHT) {
+		fill(0);
+		ellipse(mouseX,mouseY,40,40);
+		noStroke();
+	  }
+	}
+}
+
+public void mousePressed() {
+	if(mouseX<500 && mouseX>0 && mouseY>0 && mouseY<500){
+	  noStroke();
+	  if (mouseButton == LEFT) {
+		fill(0xffa0522d);
+		ellipse(mouseX,mouseY,20,20);
+	  } else if (mouseButton == RIGHT) {
+		fill(0);
+		ellipse(mouseX,mouseY,40,40);
+		
+	  }
+	}
+
 }
 
 public void draw(){
@@ -55,6 +83,8 @@ public void draw(){
 			flakeHolder[i].move();
 		}
 	}
+	
+	println(frameRate);
 
 
 }
@@ -107,36 +137,7 @@ class SnowFlake{
 	}
 }
 
-public void mouseDragged() {
-	if(mouseX<500 && mouseX>0 && mouseY>0 && mouseY<500){
-	  noStroke();
-	  if (mouseButton == LEFT) {
-		//fill((int) (Math.random()*255),(int) (Math.random()*255),(int) (Math.random()*255));
-		fill(0xffa0522d);
-		ellipse(mouseX,mouseY,20,20);
-	  } else if (mouseButton == RIGHT) {
-		fill(0);
-		ellipse(mouseX,mouseY,40,40);
-		noStroke();
-	  }
-	}
-}
 
-public void mousePressed() {
-
-	if(mouseX<500 && mouseX>0 && mouseY>0 && mouseY<500){
-	  noStroke();
-	  if (mouseButton == LEFT) {
-		fill(0xffa0522d);
-		ellipse(mouseX,mouseY,20,20);
-	  } else if (mouseButton == RIGHT) {
-		fill(0);
-		ellipse(mouseX,mouseY,40,40);
-		
-	  }
-	}
-
-}
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "SnowflakeCatcher" };
     if (passedArgs != null) {
