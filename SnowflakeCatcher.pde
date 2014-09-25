@@ -10,21 +10,18 @@ void setup(){
 
 void mouseDragged() {
 	if(mouseX<500 && mouseX>0 && mouseY>0 && mouseY<500){
-	  noStroke();
 	  if (mouseButton == LEFT) {
 		fill(#a0522d);
 		ellipse(mouseX,mouseY,20,20);
 	  } else if (mouseButton == RIGHT) {
 		fill(0);
 		ellipse(mouseX,mouseY,40,40);
-		noStroke();
 	  }
 	}
 }
 
 void mousePressed() {
 	if(mouseX<500 && mouseX>0 && mouseY>0 && mouseY<500){
-	  noStroke();
 	  if (mouseButton == LEFT) {
 		fill(#a0522d);
 		ellipse(mouseX,mouseY,20,20);
@@ -39,7 +36,6 @@ void mousePressed() {
 
 void draw(){
 	//background(0);
-	noStroke();
 	if(flakeCount >= flakeHolder.length - 1){
 		flakeCount = 0;
 	}
@@ -53,7 +49,6 @@ void draw(){
 
 	for(int i = 0; i<flakeHolder.length; i++){
 		if(flakeHolder[i] != null){
-			noStroke();
 			fill(0,0,0);
 			ellipse(flakeHolder[i].x, flakeHolder[i].y-1, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/2, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/1.6);
 
