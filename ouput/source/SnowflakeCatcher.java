@@ -26,21 +26,18 @@ public void setup(){
 
 public void mouseDragged() {
 	if(mouseX<500 && mouseX>0 && mouseY>0 && mouseY<500){
-	  noStroke();
 	  if (mouseButton == LEFT) {
 		fill(0xffa0522d);
 		ellipse(mouseX,mouseY,20,20);
 	  } else if (mouseButton == RIGHT) {
 		fill(0);
 		ellipse(mouseX,mouseY,40,40);
-		noStroke();
 	  }
 	}
 }
 
 public void mousePressed() {
 	if(mouseX<500 && mouseX>0 && mouseY>0 && mouseY<500){
-	  noStroke();
 	  if (mouseButton == LEFT) {
 		fill(0xffa0522d);
 		ellipse(mouseX,mouseY,20,20);
@@ -55,7 +52,6 @@ public void mousePressed() {
 
 public void draw(){
 	//background(0);
-	noStroke();
 	if(flakeCount >= flakeHolder.length - 1){
 		flakeCount = 0;
 	}
@@ -69,9 +65,8 @@ public void draw(){
 
 	for(int i = 0; i<flakeHolder.length; i++){
 		if(flakeHolder[i] != null){
-			noStroke();
 			fill(0,0,0);
-			ellipse(flakeHolder[i].x, flakeHolder[i].y-1, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/2, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/1.6f);
+			ellipse(flakeHolder[i].x, flakeHolder[i].y-1, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/2.5f, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/1.7f);
 
             fill(255,255,255);
 			ellipse(flakeHolder[i].x, flakeHolder[i].y, flakeHolder[i].flakeSize, flakeHolder[i].flakeSize);
@@ -122,7 +117,7 @@ class SnowFlake{
 	}
 	public void checker(){
 		boolean isMovable = true;
-		for(int i = -flakeSize/2; i<flakeSize/2; i++){
+		for(int i = -flakeSize/3; i<flakeSize/3; i++){
 			if(isMovable && y > 1){
 				if(get(x+i,y+flakeSize/2+1)!=bgColor){
 		                  moveAble=false;

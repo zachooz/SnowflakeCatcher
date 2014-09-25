@@ -50,7 +50,7 @@ void draw(){
 	for(int i = 0; i<flakeHolder.length; i++){
 		if(flakeHolder[i] != null){
 			fill(0,0,0);
-			ellipse(flakeHolder[i].x, flakeHolder[i].y-1, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/2, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/1.6);
+			ellipse(flakeHolder[i].x, flakeHolder[i].y-1, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/2.5, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/1.7);
 
             fill(255,255,255);
 			ellipse(flakeHolder[i].x, flakeHolder[i].y, flakeHolder[i].flakeSize, flakeHolder[i].flakeSize);
@@ -101,7 +101,7 @@ class SnowFlake{
 	}
 	void checker(){
 		boolean isMovable = true;
-		for(int i = -flakeSize/2; i<flakeSize/2; i++){
+		for(int i = -flakeSize/3; i<flakeSize/3; i++){
 			if(isMovable && y > 1){
 				if(get(x+i,y+flakeSize/2+1)!=bgColor){
 		                  moveAble=false;
