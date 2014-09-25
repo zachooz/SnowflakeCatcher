@@ -67,15 +67,6 @@ void draw(){
 
 
 }
-void keyPressed(){
-	if(key == 32){
-		for(int i = 0; i<flakeHolder.length; i++){
-			flakeHolder[i] = null;
-			fill(0);
-			rect(-100, -100, 1000, 1000);
-		}
-	}
-}
 
 class SnowFlake{
 	int x;
