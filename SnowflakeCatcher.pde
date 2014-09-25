@@ -8,6 +8,7 @@ void setup(){
 	frameRate(60);
 }
 
+/*
 void mouseDragged() {
 	if(mouseX<500 && mouseX>0 && mouseY>0 && mouseY<500){
 	  if (mouseButton == LEFT) {
@@ -33,6 +34,7 @@ void mousePressed() {
 	}
 
 }
+*/
 
 void draw(){
 	//background(0);
@@ -64,6 +66,18 @@ void draw(){
 	}
 	
 	//println(frameRate);
+	if(mousePressed){
+		if(mouseX<500 && mouseX>0 && mouseY>0 && mouseY<500){
+		  if (mouseButton == LEFT) {
+			fill(#a0522d);
+			ellipse(mouseX,mouseY,20,20);
+		  } else if (mouseButton == RIGHT) {
+			fill(0);
+			ellipse(mouseX,mouseY,40,40);
+			
+		  }
+		}
+	}
 
 
 }
