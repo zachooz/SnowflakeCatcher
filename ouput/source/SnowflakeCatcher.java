@@ -76,7 +76,7 @@ class SnowFlake{
 	Boolean moveAble;
 	int bgColor;
 	SnowFlake(){
-		x = (int) (Math.random()*480+7);
+		x = (int) (Math.random()*490+7);
 		y = 2;
 		speed = 3;
 		flakeSize = (int) (Math.random()*5+5);
