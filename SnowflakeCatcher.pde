@@ -1,11 +1,11 @@
-SnowFlake[] flakeHolder =  new SnowFlake[500];
+SnowFlake[] flakeHolder =  new SnowFlake[1000];
 int flakeCount = 0;
 void setup(){
 	size(500,500);
 	noStroke();
 	fill(0);
 	rect(-100, -100, 1000, 1000);
-	frameRate(100);
+	frameRate(60);
 }
 
 void mouseDragged() {
