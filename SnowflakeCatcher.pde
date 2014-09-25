@@ -6,7 +6,7 @@ void setup(){
 	noStroke();
 	fill(0);
 	rect(-100, -100, 1000, 1000);
-	frameRate(1000);
+	frameRate(24);
 }
 
 void draw(){
