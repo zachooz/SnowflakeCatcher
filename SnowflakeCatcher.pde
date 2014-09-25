@@ -1,4 +1,4 @@
-SnowFlake[] flakeHolder =  new SnowFlake[5000];
+SnowFlake[] flakeHolder =  new SnowFlake[500];
 int flakeCount = 0;
 void setup(){
 	size(500,500);
