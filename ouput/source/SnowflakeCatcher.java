@@ -113,7 +113,7 @@ class SnowFlake{
 	}
 	public void checker(){
 		boolean isMovable = true;
-		for(int i = -flakeSize/2; i<flakeSize/2; i++){
+		for(int i = -flakeSize/3; i<flakeSize/3; i++){
 			if(isMovable && y > 1){
 				if(get(x+i,y+flakeSize/2+1)!=bgColor){
 		                  moveAble=false;
