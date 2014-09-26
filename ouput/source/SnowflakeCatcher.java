@@ -14,8 +14,10 @@ import java.io.IOException;
 
 public class SnowflakeCatcher extends PApplet {
 
-SnowFlake[] flakeHolder =  new SnowFlake[500];
+SnowFlake[] flakeHolder =  new SnowFlake[50];
 int flakeCount = 0;
+
+boolean spawn = true;
 public void setup(){
 	size(500,500);
 	noStroke();
@@ -25,27 +27,44 @@ public void setup(){
 }
 
 public void draw(){
-	//background(0);
+	int s = second();
 	if(flakeCount >= flakeHolder.length - 1){
 		flakeCount = 0;
 	}
 	if(flakeHolder[flakeCount] != null){
 		fill(0);
-		ellipse(flakeHolder[flakeCount].x, flakeHolder[flakeCount].y-1, flakeHolder[flakeCount].flakeSize+flakeHolder[flakeCount].flakeSize/2.5f, flakeHolder[flakeCount].flakeSize+flakeHolder[flakeCount].flakeSize/1.7f);
+		ellipse(flakeHolder[flakeCount].x, flakeHolder[flakeCount].y-1, flakeHolder[flakeCount].flakeSize+flakeHolder[flakeCount].flakeSize/2.5f, flakeHolder[flakeCount].flakeSize+flakeHolder[flakeCount].flakeSize/1.8f);
 	}
 	if(flakeHolder[flakeCount]==null){
-		flakeHolder[flakeCount] = new SnowFlake();
+		if(s%2==0 && spawn){
+			flakeHolder[flakeCount] = new SnowFlake();
+			flakeCount++;
+			spawn = false;
+		}
+		
+		if(s%2 != 0 && !spawn){
+			flakeHolder[flakeCount] = new SnowFlake();
+			flakeCount++;
+			spawn = true;
+		}
 	} else {
-		flakeHolder[flakeCount].x = (int) (Math.random()*490+7);
-		flakeHolder[flakeCount].y = 2;
+		if(s%2==0 && spawn){
+			flakeHolder[flakeCount].x = (int) (Math.random()*490+7);
+			flakeHolder[flakeCount].y = 2;
+			spawn = false;
+		}
+		if(s%2 != 0 && !spawn){
+			flakeHolder[flakeCount].x = (int) (Math.random()*490+7);
+			flakeHolder[flakeCount].y = 2;
+			spawn = true;
+		}
 	}
-	flakeCount++;
-
+	
 
 	for(int i = 0; i<flakeHolder.length; i++){
 		if(flakeHolder[i] != null){
 			fill(0,0,0);
-			ellipse(flakeHolder[i].x, flakeHolder[i].y-1, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/2.5f, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/1.7f);
+			ellipse(flakeHolder[i].x, flakeHolder[i].y-1, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/2.5f, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/1.8f);
 
             		fill(255,255,255);
 			ellipse(flakeHolder[i].x, flakeHolder[i].y, flakeHolder[i].flakeSize, flakeHolder[i].flakeSize);
@@ -94,7 +113,7 @@ class SnowFlake{
 	}
 	public void checker(){
 		boolean isMovable = true;
-		for(int i = -flakeSize/3; i<flakeSize/3; i++){
+		for(int i = -flakeSize/2; i<flakeSize/2; i++){
 			if(isMovable && y > 1){
 				if(get(x+i,y+flakeSize/2+1)!=bgColor){
 		                  moveAble=false;
