@@ -49,16 +49,11 @@ public void draw(){
 
             		fill(255,255,255);
 			ellipse(flakeHolder[i].x, flakeHolder[i].y, flakeHolder[i].flakeSize, flakeHolder[i].flakeSize);
-		}
-	}
-
-	for(int i = 0; i<flakeHolder.length; i++){
-		if(flakeHolder[i] != null){
 			flakeHolder[i].move();
 		}
 	}
+
 	
-	//println(frameRate);
 	if(mousePressed){
 		if(mouseX<500 && mouseX>0 && mouseY>0 && mouseY<500){
 		  if (mouseButton == LEFT) {
