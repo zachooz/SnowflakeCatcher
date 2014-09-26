@@ -1,4 +1,4 @@
-SnowFlake[] flakeHolder =  new SnowFlake[1000];
+SnowFlake[] flakeHolder =  new SnowFlake[500];
 int flakeCount = 0;
 void setup(){
 	size(500,500);
@@ -8,8 +8,6 @@ void setup(){
 	frameRate(60);
 }
 
-
-
 void draw(){
 	//background(0);
 	if(flakeCount >= flakeHolder.length - 1){
@@ -17,9 +15,14 @@ void draw(){
 	}
 	if(flakeHolder[flakeCount] != null){
 		fill(0);
-		ellipse(flakeHolder[i].x, flakeHolder[i].y-1, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/2.5, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/1.7);
+		ellipse(flakeHolder[flakeCount].x, flakeHolder[flakeCount].y-1, flakeHolder[flakeCount].flakeSize+flakeHolder[flakeCount].flakeSize/2.5, flakeHolder[flakeCount].flakeSize+flakeHolder[flakeCount].flakeSize/1.7);
 	}
-	flakeHolder[flakeCount] = new SnowFlake();
+	if(flakeHolder[flakeCount]==null){
+		flakeHolder[flakeCount] = new SnowFlake();
+	} else {
+		flakeHolder[flakeCount].x = (int) (Math.random()*490+7);
+		flakeHolder[flakeCount].y = 2;
+	}
 	flakeCount++;
 
 

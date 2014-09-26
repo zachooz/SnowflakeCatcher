@@ -14,40 +14,14 @@ import java.io.IOException;
 
 public class SnowflakeCatcher extends PApplet {
 
-SnowFlake[] flakeHolder =  new SnowFlake[1000];
+SnowFlake[] flakeHolder =  new SnowFlake[500];
 int flakeCount = 0;
 public void setup(){
 	size(500,500);
 	noStroke();
 	fill(0);
 	rect(-100, -100, 1000, 1000);
-	frameRate(100);
-}
-
-public void mouseDragged() {
-	if(mouseX<500 && mouseX>0 && mouseY>0 && mouseY<500){
-	  if (mouseButton == LEFT) {
-		fill(0xffa0522d);
-		ellipse(mouseX,mouseY,20,20);
-	  } else if (mouseButton == RIGHT) {
-		fill(0);
-		ellipse(mouseX,mouseY,40,40);
-	  }
-	}
-}
-
-public void mousePressed() {
-	if(mouseX<500 && mouseX>0 && mouseY>0 && mouseY<500){
-	  if (mouseButton == LEFT) {
-		fill(0xffa0522d);
-		ellipse(mouseX,mouseY,20,20);
-	  } else if (mouseButton == RIGHT) {
-		fill(0);
-		ellipse(mouseX,mouseY,40,40);
-		
-	  }
-	}
-
+	frameRate(60);
 }
 
 public void draw(){
@@ -57,9 +31,14 @@ public void draw(){
 	}
 	if(flakeHolder[flakeCount] != null){
 		fill(0);
-		ellipse(flakeHolder[flakeCount].x, flakeHolder[flakeCount].y, flakeHolder[flakeCount].flakeSize+5, flakeHolder[flakeCount].flakeSize+5);
+		ellipse(flakeHolder[flakeCount].x, flakeHolder[flakeCount].y-1, flakeHolder[flakeCount].flakeSize+flakeHolder[flakeCount].flakeSize/2.5f, flakeHolder[flakeCount].flakeSize+flakeHolder[flakeCount].flakeSize/1.7f);
 	}
-	flakeHolder[flakeCount] = new SnowFlake();
+	if(flakeHolder[flakeCount]==null){
+		flakeHolder[flakeCount] = new SnowFlake();
+	} else {
+		flakeHolder[flakeCount].x = (int) (Math.random()*490+7);
+		flakeHolder[flakeCount].y = 2;
+	}
 	flakeCount++;
 
 
@@ -68,7 +47,7 @@ public void draw(){
 			fill(0,0,0);
 			ellipse(flakeHolder[i].x, flakeHolder[i].y-1, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/2.5f, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/1.7f);
 
-            fill(255,255,255);
+            		fill(255,255,255);
 			ellipse(flakeHolder[i].x, flakeHolder[i].y, flakeHolder[i].flakeSize, flakeHolder[i].flakeSize);
 		}
 	}
@@ -80,17 +59,20 @@ public void draw(){
 	}
 	
 	//println(frameRate);
-
-
-}
-public void keyPressed(){
-	if(key == 32){
-		for(int i = 0; i<flakeHolder.length; i++){
-			flakeHolder[i] = null;
+	if(mousePressed){
+		if(mouseX<500 && mouseX>0 && mouseY>0 && mouseY<500){
+		  if (mouseButton == LEFT) {
+			fill(0xffa0522d);
+			ellipse(mouseX,mouseY,20,20);
+		  } else if (mouseButton == RIGHT) {
 			fill(0);
-			rect(-100, -100, 1000, 1000);
+			ellipse(mouseX,mouseY,40,40);
+			
+		  }
 		}
 	}
+
+
 }
 
 class SnowFlake{
