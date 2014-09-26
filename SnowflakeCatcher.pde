@@ -42,7 +42,6 @@ void draw(){
 		}
 	}
 	
-	//println(frameRate);
 	if(mousePressed){
 		if(mouseX<500 && mouseX>0 && mouseY>0 && mouseY<500){
 		  if (mouseButton == LEFT) {
