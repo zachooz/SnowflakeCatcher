@@ -51,11 +51,13 @@ public void draw(){
 		if(s%2==0 && spawn){
 			flakeHolder[flakeCount].x = (int) (Math.random()*490+7);
 			flakeHolder[flakeCount].y = 2;
+			flakeCount++;
 			spawn = false;
 		}
 		if(s%2 != 0 && !spawn){
 			flakeHolder[flakeCount].x = (int) (Math.random()*490+7);
 			flakeHolder[flakeCount].y = 2;
+			flakeCount++;
 			spawn = true;
 		}
 	}
