@@ -1,4 +1,4 @@
-SnowFlake[] flakeHolder =  new SnowFlake[10];
+SnowFlake[] flakeHolder =  new SnowFlake[1000];
 int flakeCount = 0;
 void setup(){
 	size(500,500);
@@ -43,7 +43,7 @@ void draw(){
 	}
 	if(flakeHolder[flakeCount] != null){
 		fill(0);
-		ellipse(flakeHolder[flakeCount].x, flakeHolder[flakeCount].y, flakeHolder[flakeCount].flakeSize+5, flakeHolder[flakeCount].flakeSize+5);
+		ellipse(flakeHolder[i].x, flakeHolder[i].y-1, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/2.5, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/1.7);
 	}
 	flakeHolder[flakeCount] = new SnowFlake();
 	flakeCount++;
@@ -51,10 +51,10 @@ void draw(){
 
 	for(int i = 0; i<flakeHolder.length; i++){
 		if(flakeHolder[i] != null){
-			fill(0,0,0);
-			ellipse(flakeHolder[i].x, flakeHolder[i].y-1, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/2.5, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/1.7);
+			//fill(0,0,0);
+			//ellipse(flakeHolder[i].x, flakeHolder[i].y-1, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/2.5, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/1.7);
 
-            fill(255,255,255);
+            		fill(255,255,255);
 			ellipse(flakeHolder[i].x, flakeHolder[i].y, flakeHolder[i].flakeSize, flakeHolder[i].flakeSize);
 		}
 	}
