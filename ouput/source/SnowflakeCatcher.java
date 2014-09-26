@@ -19,7 +19,7 @@ int flakeCount = 0;
 
 boolean spawn = true;
 public void setup(){
-	size(500,500);
+	size(200,200);
 	noStroke();
 	fill(0);
 	rect(-100, -100, 1000, 1000);
@@ -76,7 +76,7 @@ public void draw(){
 
 	
 	if(mousePressed){
-		if(mouseX<500 && mouseX>0 && mouseY>0 && mouseY<500){
+		if(mouseX<width && mouseX>0 && mouseY>0 && mouseY<height){
 		  if (mouseButton == LEFT) {
 			fill(0xffa0522d);
 			ellipse(mouseX,mouseY,20,20);
@@ -99,7 +99,7 @@ class SnowFlake{
 	Boolean moveAble;
 	int bgColor;
 	SnowFlake(){
-		x = (int) (Math.random()*490+7);
+		x = (int) (Math.random()*(width-10) +7);
 		y = 2;
 		speed = 3;
 		flakeSize = (int) (Math.random()*5+5);
