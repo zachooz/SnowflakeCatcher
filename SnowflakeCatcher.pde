@@ -51,8 +51,8 @@ void draw(){
 
 	for(int i = 0; i<flakeHolder.length; i++){
 		if(flakeHolder[i] != null){
-			//fill(0,0,0);
-			//ellipse(flakeHolder[i].x, flakeHolder[i].y-1, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/2.5, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/1.7);
+			fill(0,0,0);
+			ellipse(flakeHolder[i].x, flakeHolder[i].y-1, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/2.5, flakeHolder[i].flakeSize+flakeHolder[i].flakeSize/1.7);
 
             		fill(255,255,255);
 			ellipse(flakeHolder[i].x, flakeHolder[i].y, flakeHolder[i].flakeSize, flakeHolder[i].flakeSize);
