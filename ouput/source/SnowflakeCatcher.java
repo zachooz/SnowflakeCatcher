@@ -14,12 +14,12 @@ import java.io.IOException;
 
 public class SnowflakeCatcher extends PApplet {
 
-SnowFlake[] flakeHolder =  new SnowFlake[50];
+SnowFlake[] flakeHolder =  new SnowFlake[1000];
 int flakeCount = 0;
 
 boolean spawn = true;
 public void setup(){
-	size(200,200);
+	size(400,400);
 	noStroke();
 	fill(0);
 	rect(-100, -100, 1000, 1000);
@@ -34,8 +34,14 @@ public void draw(){
 	if(flakeHolder[flakeCount] != null){
 		fill(0);
 		ellipse(flakeHolder[flakeCount].x, flakeHolder[flakeCount].y-1, flakeHolder[flakeCount].flakeSize+flakeHolder[flakeCount].flakeSize/2.5f, flakeHolder[flakeCount].flakeSize+flakeHolder[flakeCount].flakeSize/1.8f);
+		
 	}
+	flakeHolder[flakeCount] = new SnowFlake();
+	flakeCount++;
+	spawn = false;
+	/*
 	if(flakeHolder[flakeCount]==null){
+		
 		if(s%2==0 && spawn){
 			flakeHolder[flakeCount] = new SnowFlake();
 			flakeCount++;
@@ -61,7 +67,7 @@ public void draw(){
 			spawn = true;
 		}
 	}
-	
+	*/
 
 	for(int i = 0; i<flakeHolder.length; i++){
 		if(flakeHolder[i] != null){
@@ -115,7 +121,7 @@ class SnowFlake{
 	}
 	public void checker(){
 		boolean isMovable = true;
-		for(int i = -flakeSize/3; i<flakeSize/3; i++){
+		for(int i = -flakeSize/2; i<flakeSize/2; i++){
 			if(isMovable && y > 1){
 				if(get(x+i,y+flakeSize/2+1)!=bgColor){
 		                  moveAble=false;
